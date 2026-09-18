@@ -1,0 +1,374 @@
+:root {
+  --navy: #0b2c4d;
+  --blue: #1d6fb8;
+  --blue-dark: #175a96;
+  --slate: #5a6b7c;
+  --line: #dde4ea;
+  --line-soft: #eef2f6;
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --green: #1e8e5a;
+  --green-bg: #e6f4ed;
+  --amber: #b5730f;
+  --amber-bg: #fdf3e2;
+  --grey-bg: #eef1f4;
+  --red: #c0392f;
+  --red-bg: #fdeeec;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: 'Rubik', system-ui, 'Segoe UI', Arial, sans-serif;
+  color: var(--navy);
+  direction: rtl;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+h1 {
+  margin: 0 0 26px;
+  padding-bottom: 22px;
+  border-bottom: 2px solid var(--navy);
+  font-size: 27px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  margin: 0 0 18px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+/* ---------- dashboard ---------- */
+
+.dashboard {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.stat {
+  flex: 1;
+  background: var(--navy);
+  border-radius: 10px;
+  padding: 22px 24px;
+  color: #ffffff;
+}
+
+.stat h2 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  color: #a8c2d9;
+}
+
+.stat-value {
+  display: block;
+  margin-top: 10px;
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- forms ---------- */
+
+.field {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 14px;
+  color: var(--slate);
+}
+
+.field input,
+.field select {
+  width: 100%;
+}
+
+input,
+select {
+  padding: 11px 14px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--navy);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input::placeholder {
+  color: #9aa8b4;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(29, 111, 184, 0.14);
+}
+
+button {
+  padding: 11px 20px;
+  font-size: 15px;
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.btn-create {
+  background: var(--blue);
+  color: #ffffff;
+}
+
+.btn-create:hover {
+  background: var(--blue-dark);
+}
+
+.btn-delete-goal {
+  background: transparent;
+  color: var(--red);
+  border-color: #f0cfcb;
+  font-size: 13px;
+  padding: 7px 14px;
+}
+
+.btn-delete-goal:hover {
+  background: var(--red-bg);
+}
+
+.btn-add-task {
+  background: var(--surface);
+  color: var(--navy);
+  border-color: var(--line);
+}
+
+.btn-add-task:hover {
+  background: var(--line-soft);
+  border-color: #c3ced8;
+}
+
+/* ---------- goal card ---------- */
+
+.goal-card {
+  border-right: 3px solid var(--line);
+  padding-right: 22px;
+}
+
+.goal-card.started {
+  border-right-color: var(--amber);
+}
+
+.goal-card.all-done {
+  border-right-color: var(--green);
+}
+
+.goal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.goal-title-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.quarter-badge {
+  background: var(--navy);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+.goal-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.progress-track {
+  flex: 1;
+  height: 5px;
+  background: var(--line-soft);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--blue);
+  border-radius: 99px;
+  transition: width 0.25s ease;
+}
+
+.progress-fill.complete {
+  background: var(--green);
+}
+
+.progress-count {
+  font-size: 13px;
+  color: var(--slate);
+  white-space: nowrap;
+}
+
+/* ---------- tasks ---------- */
+
+.task-list {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+}
+
+.task-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.task-text {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.task-text.done {
+  text-decoration: line-through;
+  text-decoration-color: #a8b4bf;
+  color: #8b98a4;
+}
+
+.task-row select {
+  font-size: 13px;
+  padding: 6px 12px;
+  min-width: 178px;
+  font-weight: 500;
+  cursor: pointer;
+  border-color: transparent;
+}
+
+.task-row select.status-pending {
+  background: var(--grey-bg);
+  color: var(--slate);
+}
+
+.task-row select.status-progress {
+  background: var(--amber-bg);
+  color: var(--amber);
+}
+
+.task-row select.status-completed {
+  background: var(--green-bg);
+  color: var(--green);
+}
+
+.add-task-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.add-task-form input {
+  flex: 1;
+  font-size: 14px;
+  padding: 9px 13px;
+}
+
+.add-task-form button {
+  font-size: 14px;
+  padding: 9px 16px;
+}
+
+/* ---------- empty states ---------- */
+
+.empty-note {
+  color: var(--slate);
+  font-size: 14px;
+  margin: 16px 0 0;
+}
+
+.empty-note.center {
+  text-align: center;
+  padding: 44px 20px;
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  margin: 0;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 640px) {
+  .page {
+    padding: 28px 16px 60px;
+  }
+
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .task-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .task-row select {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
